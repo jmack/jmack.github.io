@@ -13,6 +13,10 @@ body {
     font-family: Helvetica, Arial, sans-serif;
 }
 
+h3, h4 {
+    color: #2f2d45;
+}
+
 /* Header */
 .header {
     display: flex;
@@ -54,6 +58,13 @@ body {
     margin-bottom: 20px;
 }
 
+.divider.small {
+    height: 30px;
+    width: 50%;
+    border-bottom: 3px solid #2f2d45;
+    margin: 0 auto 20px auto;
+}
+
 .spacer {
     height: 30px;
 }
@@ -92,4 +103,27 @@ body {
     text-align: center;
     padding-right: 10px;
     font-weight: 600;
+}
+
+/* General alignment */
+.container-col {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-col.col2 div {
+    width: 50%;
+}
+
+.container-col.col3 div {
+    width: 33%;
+}
+
+.container-col div {
+    padding: 0 10px;
+}
+
+.container-col div h4 {
+    width: 100%;
+    text-align: center;
 }

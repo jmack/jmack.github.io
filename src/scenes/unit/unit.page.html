@@ -1,6 +1,20 @@
-<div>
-  Unit {{unit?.name}}
+<div *ngIf="!unit">
+  Loading
+</div>
+<div *ngIf="unit">
+  Unit {{unit.unit.name}}
 
-  Groups
-  <li *ngFor="let group of groups;">{{group?.name}}</li>
+  <ul>
+    <li *ngFor="let ungroupedSoldier of unit.soldiers">
+      {{ungroupedSoldier.rank.abbreviation}} {{ungroupedSoldier.soldier.name.first}} {{ungroupedSoldier.soldier.name.last}}
+    </li>
+    <li *ngFor="let group of unit.groups;">
+      {{group.group.name}}
+      <ul>
+        <li *ngFor="let soldier of group.soldiers;">
+          {{soldier.rank.abbreviation}} {{soldier.soldier.name.first}} {{soldier.soldier.name.last}}
+        </li>
+      </ul>
+    </li>
+  </ul>
 </div>

@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./styles/variables";
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #e4ebf3;
+}
+
+.display-contents {
+  display: contents;
+}
+
+table {
+  border: 1px solid #888;
+  border-spacing: 0;
+  border-collapse: separate;
+
+  tr {
+    height: 38px;
+    background-color: #fff;
+
+    &:hover {
+      filter: brightness(85%);
+    }
+  }
+
+  td,
+  th {
+    padding: 0;
+    vertical-align: middle;
+
+    &.ralign {
+      text-align: right;
+    }
+    &.calign {
+      text-align: center;
+    }
+  }
+}

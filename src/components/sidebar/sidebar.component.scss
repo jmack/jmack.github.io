@@ -1,0 +1,10 @@
+@use "../../styles/variables";
+
+.sidebar {
+  height: 100%;
+  background-color: variables.$color-primary;
+  width: 12vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+}

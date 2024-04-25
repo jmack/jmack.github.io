@@ -1,8 +1,8 @@
 .main-body {
   max-width: 1200px;
+  height: 100%;
+  overflow-x: scroll;
   margin: auto;
-}
-
-.display-contents {
-  display: contents;
+  padding-left: 200px;
+  padding-right: 200px;
 }

@@ -3,15 +3,18 @@
     {{ soldier?.soldier?.role }}
   </td>
   <td>
-    <img
-      class="rank-image"
-      *ngIf="soldier?.rank?.uri"
-      [src]="soldier?.rank?.uri"
-    />{{ soldier?.rank?.abbreviation }}
+    <span class="rank-container">
+      <img
+        class="rank-image"
+        *ngIf="soldier?.rank?.uri"
+        [src]="soldier?.rank?.uri"
+      />
+    </span>
+    {{ soldier?.rank?.abbreviation }}
   </td>
   <td>
     {{ soldier?.soldier?.name?.first }}. {{ soldier?.soldier?.name?.last }}
   </td>
   <td>{{ soldier?.soldier?.player }}</td>
-  <td>{{ soldier?.soldier?.joined | date: "mediumDate" }}</td>
+  <td class="ralign">{{ soldier?.soldier?.joined | date: "mediumDate" }}</td>
 </tr>

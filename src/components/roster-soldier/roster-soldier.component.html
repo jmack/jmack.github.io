@@ -1,4 +1,4 @@
-<tr>
+<tr [routerLink]="['/soldier', soldier?.soldier?.id]">
   <td [ngStyle]="{ 'padding-left': nesting * 0.5 + 'em' }">
     {{ soldier?.soldier?.role }}
   </td>

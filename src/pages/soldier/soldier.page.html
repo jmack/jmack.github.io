@@ -1,0 +1,4 @@
+<div class="soldier-page">
+  <div *ngIf="!soldier">Loading</div>
+  <div *ngIf="soldier">{{ soldier.name.first }} {{ soldier.name.last }}</div>
+</div>

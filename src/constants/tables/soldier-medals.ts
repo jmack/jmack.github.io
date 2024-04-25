@@ -1,7 +1,10 @@
+import { Medal } from './medals';
+
 export interface SoldierMedal {
   id: string;
   soldierId: string;
   medalId: string;
+  medal?: Medal;
   quantity: number;
   info: SoldierMedalInfo[];
 }

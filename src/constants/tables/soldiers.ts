@@ -29,12 +29,12 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
   {
     id: 'bb769a35-fed8-4ab5-938a-f56ea79cc5e6',
     unitId: 'acfa4c5f-d2d9-43f4-ac88-01cbf0156f76',
-    groupId: 'd33c60b0-48fa-4f6e-9f0e-8b8b550b0b7a',
+    groupId: '31b5f5bd-a0d4-4a06-9bcf-8672e3b29a25',
     name: {
       first: 'Mabel-lee',
       last: 'Reid',
     },
-    rankId: '31b5f5bd-a0d4-4a06-9bcf-8672e3b29a25',
+    rankId: 'd33c60b0-48fa-4f6e-9f0e-8b8b550b0b7a',
     joined: new Date("2024-01-06"),
     player: 'FlameAndLight',
     role: 'Squad Lead',

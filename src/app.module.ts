@@ -4,17 +4,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CommonModule } from '@angular/common';
-import { UnitPage } from './scenes/unit/unit.page';
+import { ComponentModule } from './components/component.module';
+import { PagesModule } from './scenes/pages.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UnitPage,
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    ComponentModule,
+    PagesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

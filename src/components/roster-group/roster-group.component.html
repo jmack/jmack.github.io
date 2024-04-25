@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let group of groups">
+    {{group.item.name}}
+    <ul>
+      <roster-soldier *ngFor="let soldier of group.soldiers" [soldier]="soldier" />
+    </ul>
+    <roster-group *ngIf="group.groups.length" [groups]="group.groups" />
+  </li>
+</ul>

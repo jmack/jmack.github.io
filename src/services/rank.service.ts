@@ -6,7 +6,7 @@ import { filter, find } from 'lodash-es';
   providedIn: 'root',
 })
 export class RankService {
-  constructor() { }
+  constructor() {}
 
   public async getRank(id: string) {
     return find(RANKS, { id });

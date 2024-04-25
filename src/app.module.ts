@@ -8,9 +8,7 @@ import { ComponentModule } from './components/component.module';
 import { PagesModule } from './scenes/pages.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -19,6 +17,6 @@ import { PagesModule } from './scenes/pages.module';
     PagesModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

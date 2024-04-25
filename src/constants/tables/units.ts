@@ -1,7 +1,7 @@
 export interface Unit {
   id: string;
   name: string;
-};
+}
 
 export const UNITS: Readonly<Unit[]> = Object.freeze([
   {

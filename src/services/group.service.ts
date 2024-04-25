@@ -6,10 +6,10 @@ import { filter, find } from 'lodash-es';
   providedIn: 'root',
 })
 export class GroupService {
-  constructor() { }
+  constructor() {}
 
   public async getGroup(id: string) {
-    return find(GROUPS, { id, });
+    return find(GROUPS, { id });
   }
 
   public async fetchGroupsForUnit(unitId: string) {

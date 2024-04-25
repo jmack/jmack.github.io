@@ -4,7 +4,7 @@ export interface Group {
   parentId?: string;
   name: string;
   weight: number;
-};
+}
 
 export const GROUPS: Readonly<Group[]> = Object.freeze([
   {

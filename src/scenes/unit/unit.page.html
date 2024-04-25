@@ -1,6 +1,4 @@
-<div *ngIf="!unit">
-  Loading
-</div>
+<div *ngIf="!unit">Loading</div>
 <div *ngIf="unit?.item">
   {{unit?.item?.name}}
   <roster-soldier *ngFor="let soldier of unit?.soldiers" [soldier]="soldier" />

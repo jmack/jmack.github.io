@@ -3,7 +3,7 @@ export interface Medal {
   unitId: string;
   name: string;
   weight: number;
-};
+}
 
 export const MEDALS: Readonly<Medal[]> = Object.freeze([
   {

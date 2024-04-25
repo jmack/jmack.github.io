@@ -23,7 +23,7 @@ export type DisplaySoldier = {
 @Component({
   selector: 'unit-page',
   templateUrl: './unit.page.html',
-  styleUrls: ['./unit.page.scss']
+  styleUrls: ['./unit.page.scss'],
 })
 export class UnitPage {
   unit?: DisplayItem;
@@ -38,15 +38,17 @@ export class UnitPage {
     private groupService: GroupService,
     private soldierService: SoldierService,
     private rankService: RankService,
-  ) { }
+  ) {}
 
   async ngOnInit() {
-    const unit = await this.unitService.getUnit(this.route.snapshot.paramMap.get('id')!);
+    const unit = await this.unitService.getUnit(
+      this.route.snapshot.paramMap.get('id')!,
+    );
     if (!unit) {
-      throw "aaah"; // redirect to home
+      throw 'aaah'; // redirect to home
     }
 
-    const [ groups, soldiers, ranks ] = await Promise.all([
+    const [groups, soldiers, ranks] = await Promise.all([
       this.groupService.fetchGroupsForUnit(unit.id),
       this.soldierService.fetchSoldiersForUnit(unit.id),
       this.rankService.fetchRanksForUnit(unit.id),
@@ -66,21 +68,33 @@ export class UnitPage {
   }
 
   private getGroupsForItem(itemId: string | undefined): DisplayItem[] {
-    return this.groups?.filter(group => group.parentId === itemId).map(group => ({
-      item: group,
-      groups: this.getGroupsForItem(group.id),
-      soldiers: this.getSoldiersForItem(group.id),
-    })) ?? [];
+    return (
+      this.groups
+        ?.filter((group) => group.parentId === itemId)
+        .map((group) => ({
+          item: group,
+          groups: this.getGroupsForItem(group.id),
+          soldiers: this.getSoldiersForItem(group.id),
+        })) ?? []
+    );
   }
 
   private getSoldiersForItem(itemId: string | undefined): DisplaySoldier[] {
-    return this.soldiers?.filter(soldier => soldier.groupId === itemId || soldier.unitId === itemId).map(soldier => this.getDisplaySoldierFromSoldier(soldier)) ?? [];
+    return (
+      this.soldiers
+        ?.filter(
+          (soldier) => soldier.groupId === itemId || soldier.unitId === itemId,
+        )
+        .map((soldier) => this.getDisplaySoldierFromSoldier(soldier)) ?? []
+    );
   }
 
   private getDisplaySoldierFromSoldier(soldier: Soldier): DisplaySoldier {
     const rank = find(this.ranks, { id: soldier.rankId });
     if (!rank) {
-      throw Error(`Soldier ${soldier.id} rank of ${soldier.rankId} is missing from ranks!`);
+      throw Error(
+        `Soldier ${soldier.id} rank of ${soldier.rankId} is missing from ranks!`,
+      );
     }
 
     return { soldier, rank };

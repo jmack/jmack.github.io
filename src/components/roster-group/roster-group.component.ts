@@ -1,5 +1,5 @@
-import { Component, Input } from "@angular/core";
-import { DisplayItem } from "../../scenes/unit/unit.page";
+import { Component, Input } from '@angular/core';
+import { DisplayItem } from '../../scenes/unit/unit.page';
 
 @Component({
   selector: 'roster-group',
@@ -9,5 +9,5 @@ import { DisplayItem } from "../../scenes/unit/unit.page";
 export class RosterGroupComponent {
   @Input() groups?: DisplayItem[];
 
-  constructor() { }
+  constructor() {}
 }

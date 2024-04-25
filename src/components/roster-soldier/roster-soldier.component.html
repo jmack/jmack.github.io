@@ -1,4 +1,5 @@
 <li>
   <img *ngIf="soldier?.rank?.uri" [src]="soldier?.rank?.uri" />
-  {{soldier?.rank?.abbreviation}} {{soldier?.soldier?.name?.first}}. {{soldier?.soldier?.name?.last}}
+  {{ soldier?.rank?.abbreviation }} {{ soldier?.soldier?.name?.first }}.
+  {{ soldier?.soldier?.name?.last }}
 </li>

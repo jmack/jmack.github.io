@@ -5,7 +5,7 @@ export interface Rank {
   abbreviation: string;
   weight: number;
   uri?: string;
-};
+}
 
 export const RANKS: Readonly<Rank[]> = Object.freeze([
   {

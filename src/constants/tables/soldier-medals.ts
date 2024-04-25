@@ -4,11 +4,11 @@ export interface SoldierMedal {
   medalId: string;
   quantity: number;
   info: SoldierMedalInfo[];
-};
+}
 export interface SoldierMedalInfo {
   dateAwarded: Date;
   reason: string;
-};
+}
 
 export const SOLDIER_MEDALS: Readonly<SoldierMedal[]> = Object.freeze([
   {
@@ -19,11 +19,13 @@ export const SOLDIER_MEDALS: Readonly<SoldierMedal[]> = Object.freeze([
     info: [
       {
         dateAwarded: new Date('2548-04-02'),
-        reason: 'Awarded for wounds received in combat against insurrectionist forces on Roost while assaulting an enemy artillery position.',
+        reason:
+          'Awarded for wounds received in combat against insurrectionist forces on Roost while assaulting an enemy artillery position.',
       },
       {
         dateAwarded: new Date('2548-04-09'),
-        reason: 'Awarded for wounds received in combat against covenant forces on Roost while defending the city of New Amsterdam',
+        reason:
+          'Awarded for wounds received in combat against covenant forces on Roost while defending the city of New Amsterdam',
       },
     ],
   },

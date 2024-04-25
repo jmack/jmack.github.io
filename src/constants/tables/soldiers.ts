@@ -11,7 +11,7 @@ export interface Soldier {
   joined?: Date;
   player: string;
   role: string;
-};
+}
 
 export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
   {
@@ -19,10 +19,10 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
     unitId: 'acfa4c5f-d2d9-43f4-ac88-01cbf0156f76',
     name: {
       first: 'Richard',
-      last: 'O\'Neill',
+      last: "O'Neill",
     },
     rankId: 'a6d07e41-a52a-45a2-ad74-24bcabaf8310',
-    joined: new Date("2024-01-06"),
+    joined: new Date('2024-01-06'),
     player: 'wlan0',
     role: 'Platoon Lead',
   },
@@ -35,7 +35,7 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
       last: 'Reid',
     },
     rankId: 'd33c60b0-48fa-4f6e-9f0e-8b8b550b0b7a',
-    joined: new Date("2024-01-06"),
+    joined: new Date('2024-01-06'),
     player: 'FlameAndLight',
     role: 'Squad Lead',
   },
@@ -48,7 +48,7 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
       last: 'Baird',
     },
     rankId: 'bea01e8b-ad6b-41e8-a590-f0a1aa89c6ad',
-    joined: new Date("2024-01-06"),
+    joined: new Date('2024-01-06'),
     player: 'miss_chief',
     role: 'Fireteam Lead',
   },
@@ -61,7 +61,7 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
       last: 'Winter',
     },
     rankId: 'bea01e8b-ad6b-41e8-a590-f0a1aa89c6ad',
-    joined: new Date("2024-01-06"),
+    joined: new Date('2024-01-06'),
     player: 'neersighted',
     role: 'Fireteam Lead',
   },
@@ -74,7 +74,7 @@ export const SOLDIERS: Readonly<Soldier[]> = Object.freeze([
       last: 'Cherry',
     },
     rankId: 'd39c040c-a5cb-4d17-854f-7399b069d353',
-    joined: new Date("2024-01-06"),
+    joined: new Date('2024-01-06'),
     player: 'hilda.',
     role: 'Naval Aviation / Intelligence Officer',
   },

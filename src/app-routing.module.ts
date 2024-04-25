@@ -4,12 +4,13 @@ import { UnitPage } from './scenes/unit/unit.page';
 
 const routes: Routes = [
   {
-    path: 'unit/:id', component: UnitPage,
-  }
+    path: 'unit/:id',
+    component: UnitPage,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

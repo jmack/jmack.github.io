@@ -6,7 +6,7 @@ import { filter, find } from 'lodash-es';
   providedIn: 'root',
 })
 export class SoldierService {
-  constructor() { }
+  constructor() {}
 
   public async getSoldier(id: string) {
     return find(SOLDIERS, { id });

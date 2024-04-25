@@ -71,8 +71,6 @@ export class UnitPage {
         ['desc'],
       ),
     };
-
-    console.log(this.unit);
   }
 
   private getGroupsForItem(itemId: string | undefined): DisplayItem[] {

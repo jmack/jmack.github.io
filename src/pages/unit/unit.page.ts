@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { find, get } from 'lodash-es';
+import { find } from 'lodash-es';
 import { Group } from 'src/constants/tables/groups';
 import { Rank } from 'src/constants/tables/ranks';
 import { Soldier } from 'src/constants/tables/soldiers';

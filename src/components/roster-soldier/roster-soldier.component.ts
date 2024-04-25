@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DisplaySoldier } from '../../scenes/unit/unit.page';
+import { DisplaySoldier } from '../../pages/unit/unit.page';
 
 @Component({
   selector: 'roster-soldier',

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { DisplayItem } from '../../scenes/unit/unit.page';
+import { DisplayItem } from '../../pages/unit/unit.page';
 
 @Component({
   selector: 'roster-group',

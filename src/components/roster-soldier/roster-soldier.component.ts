@@ -8,6 +8,7 @@ import { DisplaySoldier } from '../../pages/unit/unit.page';
 })
 export class RosterSoldierComponent {
   @Input() soldier?: DisplaySoldier;
+  @Input() nesting: number = 0;
 
   constructor() {}
 }

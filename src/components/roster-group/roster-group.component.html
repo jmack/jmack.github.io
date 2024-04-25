@@ -1,12 +1,19 @@
-<ul>
-  <li *ngFor="let group of groups">
-    {{ group.item.name }}
-    <ul>
-      <roster-soldier
-        *ngFor="let soldier of group.soldiers"
-        [soldier]="soldier"
-      />
-    </ul>
-    <roster-group *ngIf="group.groups.length" [groups]="group.groups" />
-  </li>
-</ul>
+<ng-container *ngFor="let group of groups">
+  <tr>
+    <td colspan="5" [ngStyle]="{ 'padding-left': nesting * 0.5 + 'em' }">
+      {{ group.item.name }}
+    </td>
+  </tr>
+  <roster-soldier
+    class="display-contents"
+    *ngFor="let soldier of group.soldiers"
+    [soldier]="soldier"
+    [nesting]="nesting + 1"
+  />
+  <roster-group
+    class="display-contents"
+    *ngIf="group.groups.length"
+    [groups]="group.groups"
+    [nesting]="nesting + 1"
+  />
+</ng-container>

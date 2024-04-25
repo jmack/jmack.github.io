@@ -1,6 +1,25 @@
-<div *ngIf="!unit">Loading</div>
-<div *ngIf="unit?.item">
-  {{unit?.item?.name}}
-  <roster-soldier *ngFor="let soldier of unit?.soldiers" [soldier]="soldier" />
-  <roster-group [groups]="unit?.groups" />
+<div class="unit-page">
+  <div *ngIf="!unit?.item">Loading</div>
+  <table class="unit-table" *ngIf="unit?.item">
+    <tr>
+      <td colspan="5">{{unit!.item.name}}</td>
+    </tr>
+    <tr>
+      <th>Role</th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Player</th>
+      <th>Date Joined</th>
+    </tr>
+    <roster-soldier
+      class="display-contents"
+      *ngFor="let soldier of unit?.soldiers"
+      [soldier]="soldier"
+    />
+    <roster-group
+      class="display-contents"
+      [groups]="unit?.groups"
+      [nesting]="1"
+    />
+  </table>
 </div>

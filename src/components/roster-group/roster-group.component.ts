@@ -8,6 +8,7 @@ import { DisplayItem } from '../../pages/unit/unit.page';
 })
 export class RosterGroupComponent {
   @Input() groups?: DisplayItem[];
+  @Input() nesting: number = 0;
 
   constructor() {}
 }

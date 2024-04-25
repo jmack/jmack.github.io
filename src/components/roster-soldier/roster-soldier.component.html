@@ -1,5 +1,17 @@
-<li>
-  <img *ngIf="soldier?.rank?.uri" [src]="soldier?.rank?.uri" />
-  {{ soldier?.rank?.abbreviation }} {{ soldier?.soldier?.name?.first }}.
-  {{ soldier?.soldier?.name?.last }}
-</li>
+<tr>
+  <td [ngStyle]="{ 'padding-left': nesting * 0.5 + 'em' }">
+    {{ soldier?.soldier?.role }}
+  </td>
+  <td>
+    <img
+      class="rank-image"
+      *ngIf="soldier?.rank?.uri"
+      [src]="soldier?.rank?.uri"
+    />{{ soldier?.rank?.abbreviation }}
+  </td>
+  <td>
+    {{ soldier?.soldier?.name?.first }}. {{ soldier?.soldier?.name?.last }}
+  </td>
+  <td>{{ soldier?.soldier?.player }}</td>
+  <td>{{ soldier?.soldier?.joined | date: "mediumDate" }}</td>
+</tr>

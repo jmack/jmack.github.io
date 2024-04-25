@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { find } from 'lodash-es';
+import { find, orderBy } from 'lodash-es';
 import { Group } from 'src/constants/tables/groups';
 import { Rank } from 'src/constants/tables/ranks';
 import { Soldier } from 'src/constants/tables/soldiers';
@@ -60,8 +60,8 @@ export class UnitPage {
 
     this.unit = {
       item: unit,
-      groups: this.getGroupsForItem(undefined),
-      soldiers: this.getSoldiersForItem(undefined),
+      groups: orderBy(this.getGroupsForItem(undefined), ['item.weight'], ['desc']),
+      soldiers: orderBy(this.getSoldiersForItem(undefined), ['rank.weight'], ['desc']),
     };
 
     console.log(this.unit);
@@ -73,8 +73,8 @@ export class UnitPage {
         ?.filter((group) => group.parentId === itemId)
         .map((group) => ({
           item: group,
-          groups: this.getGroupsForItem(group.id),
-          soldiers: this.getSoldiersForItem(group.id),
+          groups: orderBy(this.getGroupsForItem(group.id), ['item.weight'], ['desc']),
+          soldiers: orderBy(this.getSoldiersForItem(group.id), ['rank.weight'], ['desc']),
         })) ?? []
     );
   }

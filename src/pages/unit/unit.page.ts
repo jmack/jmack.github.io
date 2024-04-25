@@ -60,8 +60,16 @@ export class UnitPage {
 
     this.unit = {
       item: unit,
-      groups: orderBy(this.getGroupsForItem(undefined), ['item.weight'], ['desc']),
-      soldiers: orderBy(this.getSoldiersForItem(undefined), ['rank.weight'], ['desc']),
+      groups: orderBy(
+        this.getGroupsForItem(undefined),
+        ['item.weight'],
+        ['desc'],
+      ),
+      soldiers: orderBy(
+        this.getSoldiersForItem(undefined),
+        ['rank.weight'],
+        ['desc'],
+      ),
     };
 
     console.log(this.unit);
@@ -73,8 +81,16 @@ export class UnitPage {
         ?.filter((group) => group.parentId === itemId)
         .map((group) => ({
           item: group,
-          groups: orderBy(this.getGroupsForItem(group.id), ['item.weight'], ['desc']),
-          soldiers: orderBy(this.getSoldiersForItem(group.id), ['rank.weight'], ['desc']),
+          groups: orderBy(
+            this.getGroupsForItem(group.id),
+            ['item.weight'],
+            ['desc'],
+          ),
+          soldiers: orderBy(
+            this.getSoldiersForItem(group.id),
+            ['rank.weight'],
+            ['desc'],
+          ),
         })) ?? []
     );
   }

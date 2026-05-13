@@ -13,27 +13,32 @@ Static **ISBN label reference** site for GitHub Pages: scan ISBNs, look up metad
 | [data/fiction.json](data/fiction.json) | 21 fiction categories → `displayName`, `image` |
 | [data/informational.json](data/informational.json) | 27 informational categories → `displayName`, `image` |
 | [assets/labels/category-placeholder.png](assets/labels/category-placeholder.png) | Fallback when an image path is missing |
-| [scripts/serve-local.ps1](scripts/serve-local.ps1) | Local HTTP server for `fetch()` / JSON (Python) |
+| [scripts/serve-local.ps1](scripts/serve-local.ps1) | Local HTTP server for Windows (PowerShell + Python) |
+| [scripts/serve-local.sh](scripts/serve-local.sh) | Local HTTP server for macOS / Linux (Bash + Python) |
 
 ## Local preview
 
-Run the script (it `Set-Location`s to the repo root next to `scripts/`):
+### macOS / Linux
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File path\to\jmack.github.io\scripts\serve-local.ps1
+```bash
+./scripts/serve-local.sh          # default port 8765
+./scripts/serve-local.sh 9000     # custom port
 ```
 
-From the repo root you can use `.\scripts\serve-local.ps1` instead. Optional port: `-Port 9000`. Open `http://127.0.0.1:8765/` (or your port). A local server is required so `fetch()` can load JSON (not `file://`).
+### Windows (PowerShell)
+
+```powershell
+.\scripts\serve-local.ps1            # default port 8765
+.\scripts\serve-local.ps1 -Port 9000 # custom port
+```
+
+Open `http://127.0.0.1:8765/` (or your chosen port). A local server is required so `fetch()` can load the JSON manifests (not `file://`).
 
 ## Category images (`assets/labels/*.png`)
 
-Numbered exports are wired in the JSON manifests as follows (if your sheet order differs, renumber files or edit the manifests):
+Label images are named after their category key (e.g. `fantasy.png`, `chemistry.png`). The mapping is defined in the JSON manifests:
 
-| Files | Chart | Order |
-| --- | --- | --- |
-| `1.png`–`20.png` | Fiction (3×8), **excluding** the four unused tiles | **Row-major**: left→right, top→bottom (Realistic → … → Classic). |
-| `21.png`–`24.png` | Same grid, bottom-right “extra” tiles from the poster | **Not** assigned in the app (Informational / Awards / TV / Class favorites). |
-| `25.png`–`51.png` | Informational (9×3) | **Row-major** each row left→right (row 1: general / chemistry / pets … row 9: physics / transportation / American history). |
-| `52.png` | — | **Graphic novel / comic** (not on the original fiction poster). |
+- **Fiction** (21 categories) — see [data/fiction.json](data/fiction.json)
+- **Informational** (27 categories) — see [data/informational.json](data/informational.json)
 
-Replace paths in [data/fiction.json](data/fiction.json) and [data/informational.json](data/informational.json) if your export order is column-first instead.
+Files `21.png`–`24.png` are unused tiles from the original poster grid (Informational / Awards / TV / Class favorites).

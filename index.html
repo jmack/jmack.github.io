@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ISBN label reference</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="app-header" id="top">
+      <div class="app-header__inner">
+        <div class="header-scan">
+          <label class="isbn-field">
+            <span class="isbn-field__label">ISBN</span>
+            <input
+              id="isbn-input"
+              class="isbn-field__input"
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="Scan or type ISBN, then Enter"
+              aria-describedby="isbn-hint"
+            />
+            <span id="isbn-hint" class="isbn-field__hint">Press Enter to add a book.</span>
+          </label>
+        </div>
+        <button type="button" class="btn btn--danger" id="clear-all-btn" disabled>
+          Clear all data
+        </button>
+      </div>
+    </header>
+
+    <main class="app-main" id="main" tabindex="-1">
+      <p class="boot-status" id="boot-status" role="status">Loading…</p>
+      <div class="category-sections" id="category-sections" hidden>
+        <p class="empty-state" id="empty-state">Scan an ISBN to begin.</p>
+      </div>
+    </main>
+
+    <button type="button" class="fab" id="fab-top" hidden aria-label="Back to top">↑</button>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "defaultImage": "assets/labels/category-placeholder.png",
+  "categories": {
+    "general_computers_records": { "displayName": "Magazines, world records & computers", "image": "assets/labels/26.png" },
+    "chemistry": { "displayName": "Chemistry", "image": "assets/labels/27.png" },
+    "pets_farm_animals": { "displayName": "Pets & farm animals", "image": "assets/labels/28.png" },
+    "psychology_parapsychology": { "displayName": "Dreams, feelings & illusions", "image": "assets/labels/29.png" },
+    "earth_sciences": { "displayName": "Earth sciences", "image": "assets/labels/30.png" },
+    "cooking_sewing_costume": { "displayName": "Cooking, sewing & costume", "image": "assets/labels/31.png" },
+    "greek_roman_mythology": { "displayName": "Greek & Roman mythology", "image": "assets/labels/32.png" },
+    "fossils_dinosaurs": { "displayName": "Fossils & dinosaurs", "image": "assets/labels/33.png" },
+    "arts_crafts_drawing_music": { "displayName": "Arts, crafts, drawing & music", "image": "assets/labels/34.png" },
+    "society_government_work_education": { "displayName": "Jobs, government & education", "image": "assets/labels/35.png" },
+    "life_science_genetics_microorganisms": { "displayName": "Life science & microorganisms", "image": "assets/labels/36.png" },
+    "sports_games_entertainment": { "displayName": "Sports, games & entertainment", "image": "assets/labels/37.png" },
+    "customs_holidays_manners_folktales": { "displayName": "Customs, holidays & folktales", "image": "assets/labels/38.png" },
+    "plants": { "displayName": "Plants", "image": "assets/labels/39.png" },
+    "poetry_jokes_plays_quotes": { "displayName": "Poetry, jokes, plays & quotes", "image": "assets/labels/40.png" },
+    "reading_languages_sign_dictionaries": { "displayName": "Reading, languages & dictionaries", "image": "assets/labels/41.png" },
+    "insects_animals": { "displayName": "Insects & animals", "image": "assets/labels/42.png" },
+    "explorers_atlases": { "displayName": "Explorers & atlases", "image": "assets/labels/43.png" },
+    "math": { "displayName": "Math", "image": "assets/labels/44.png" },
+    "medicine_health_nutrition_body": { "displayName": "Medicine, health & body", "image": "assets/labels/45.png" },
+    "biographies": { "displayName": "Biographies", "image": "assets/labels/46.png" },
+    "astronomy_space": { "displayName": "Astronomy & space", "image": "assets/labels/47.png" },
+    "engineering_robots_inventions": { "displayName": "Engineering, robots & inventions", "image": "assets/labels/48.png" },
+    "ancient_world_history_wars": { "displayName": "Ancient & world history", "image": "assets/labels/49.png" },
+    "physics_sound_heat_electricity_magnets": { "displayName": "Physics & energy", "image": "assets/labels/50.png" },
+    "transportation": { "displayName": "Transportation", "image": "assets/labels/51.png" },
+    "american_history": { "displayName": "American history", "image": "assets/labels/52.png" }
+  }
+}

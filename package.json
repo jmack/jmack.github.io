@@ -1,7 +1,8 @@
 {
   "type": "module",
   "scripts": {
-    "serve": "browser-sync start --server --port 8765 --files \"*.html, *.css, *.js, data/**/*\""
+    "serve": "browser-sync start --server --port 8765 --files \"*.html, *.css, *.js, data/**/*\"",
+    "test": "node --test tests/mapping.test.js"
   },
   "devDependencies": {
     "browser-sync": "^3.0.0"

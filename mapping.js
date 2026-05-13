@@ -113,34 +113,34 @@ function nearestAnchor(d) {
  * @type {Array<[string, RegExp]>}
  */
 const INFORMATIONAL_PATTERNS = [
-  ["biographies",                         /\b(biograph|autobiograph|who\s*was|who\s*is|life\s*of)\b/i],
-  ["weather_natural_disasters",           /\b(weather|hurricane|tornado|earthquake|tsunami|flood|storm|blizzard|natural\s*disaster|meteorolog|severe\s*weather|lightning|drought|cyclone|typhoon)\b/i],
-  ["mythology",                           /\b(mytholog|myths?|greek\s*gods?|roman\s*gods?|norse|viking\s*mythol|egyptian\s*(?:god|mythol)|zeus|athena|olympus|hercules|poseidon|hades|apollo|thor|odin|loki|anubis|ra\b)\b/i],
-  ["sports_games_entertainment",          /\b(sports?|baseball|basketball|football|soccer|olympics?|athlet|tennis|swimming|gymnast|hockey|wrestling|martial\s*arts|boxing|cricket)\b/i],
-  ["astronomy_space",                     /\b(astronomy|planets?|solar\s*system|stars?|moon|nasa|astronaut|galax|universe|cosmos|space\s*explor|rocket|telescope|constellation|asteroid|comet|nebula)\b/i],
-  ["fossils_dinosaurs",                   /\b(dinosaur|fossil|paleontolog|prehistoric|extinction|jurassic|triassic|cretaceous|mesozoic|tyrannosaurus|triceratops|pterodactyl)\b/i],
+  ["biographies",                         /\b(biograph\w*|autobiograph\w*|who\s+was|who\s+is|life\s+of)\b/i],
+  ["weather_natural_disasters",           /\b(weather|hurricanes?|tornadoe?s?|earthquakes?|tsunamis?|floods?|storms?|blizzards?|natural\s*disasters?|meteorolog\w*|severe\s*weather|lightning|droughts?|cyclones?|typhoons?)\b/i],
+  ["mythology",                           /\b(mytholog\w*|myths?|greek\s*gods?|roman\s*gods?|norse|viking\s*mythol\w*|egyptian\s*(?:gods?|mythol\w*)|zeus|athena|olympus|hercules|poseidon|hades|apollo|thor|odin|loki|anubis)\b/i],
+  ["sports_games_entertainment",          /\b(sports?|baseball|basketball|football|soccer|olympics?|athlet\w*|tennis|swimming|gymnast\w*|hockey|wrestling|martial\s*arts|boxing|cricket)\b/i],
+  ["astronomy_space",                     /\b(astronomy|planets?|solar\s*system|stars?|moon|nasa|astronauts?|galax\w*|universe|cosmos|space\s*explor\w*|rockets?|telescopes?|constellations?|asteroids?|comets?|nebula)\b/i],
+  ["fossils_dinosaurs",                   /\b(dinosaurs?|fossils?|paleontolog\w*|prehistoric|extinction|jurassic|triassic|cretaceous|mesozoic|tyrannosaurus|triceratops|pterodactyl)\b/i],
   ["american_history",                    /\b(american\s*history|united\s*states\s*history|american\s*revolution|civil\s*war|presidents?|colonial\s*america|independence|constitution|founding\s*fathers?|westward\s*expansion|declaration\s*of)\b/i],
-  ["world_history",                       /\b(world\s*history|medieval|renaissance|world\s*war|civilizat|ancient\s*rome|ancient\s*egypt|ancient\s*greece|empire|dynasty|crusade|ottoman|roman\s*empire|feudal|pharaoh|gladiator|viking)\b/i],
-  ["insects_animals",                     /\b(insects?|animals?|wildlife|mammals?|reptiles?|amphibians?|birds?|fish|sharks?|whales?|dolphins?|endangered\s*species|predator|prey|migration|habitat|zoolog)\b/i],
-  ["pets_farm_animals",                   /\b(pets?|dogs?|cats?|horses?|hamsters?|rabbits?|farm\s*animals?|veterinar|pet\s*care|kittens?|puppies?|guinea\s*pigs?|goldfish|parrots?)\b/i],
-  ["earth_sciences",                      /\b(geology|rocks?|minerals?|volcanos?|volcanoes?|geography|landforms?|soil|tectonic|caves?|mountains?|erosion|crystals?|gemstones?|geolog)\b/i],
-  ["engineering_robots_inventions",       /\b(engineering|robots?|inventions?|inventors?|machines?|technolog|robotics|coding|programming|3d\s*print|mechanis|blueprint|prototype|patent)\b/i],
-  ["medicine_health_nutrition_body",      /\b(medicine|health|nutrition|human\s*body|anatomy|diseases?|exercise|fitness|hygiene|skeleton|muscles?|digest|immune|vitamins?|organs?|surgery|doctor|nurse|first\s*aid)\b/i],
-  ["arts_crafts_drawing_music",           /\b(art\b|drawing|painting|crafts?|music|musical\s*instruments?|sculpture|dance|origami|photography|theater|theatre|ballet|orchestra|compose|artist|gallery|museum)\b/i],
-  ["chemistry",                           /\b(chemistry|chemical|elements?|periodic\s*table|atoms?|molecules?|reactions?|compound|solution|acid|base|laboratory)\b/i],
-  ["physics_sound_heat_electricity_magnets", /\b(physics|electricity|magnets?|magnetism|sound|light|energy|heat|forces?|gravity|motion|waves?|friction|optics|circuit|voltage|newton)\b/i],
-  ["math",                                /\b(mathematics|math\b|algebra|geometry|numbers?|fractions?|multiplication|probability|statistics|equations?|calcul|arithmetic|decimal)\b/i],
-  ["plants",                              /\b(plants?|trees?|flowers?|gardening|botany|seeds?|photosynthesis|forests?|rainforest|ferns?|cactus|cacti|moss|pollen|roots?|leaves|botanical)\b/i],
-  ["life_science_genetics_microorganisms", /\b(biology|genetics|cells?|microorganisms?|bacteria|viruses?|dna|evolution|ecosystems?|habitats?|biome|organism|photosynthesis|mitosis|chromosome)\b/i],
-  ["cooking_sewing_costume",              /\b(cooking|recipes?|baking|sewing|fashion|costume|clothing|food\b|chef|cuisine|ingredients?|kitchen|dessert|knitting)\b/i],
-  ["customs_holidays_manners_folktales",  /\b(holidays?|christmas|halloween|thanksgiving|traditions?|customs?|manners|etiquette|folklore|folktales?|celebrations?|easter|hanukkah|kwanzaa|diwali|ramadan|festival)\b/i],
-  ["psychology_parapsychology",           /\b(psychology|dreams?|feelings?|emotions?|mind\b|brain\b|illusions?|optical\s*illusion|senses?|perception|self[- ]esteem|anxiety|mental\s*health|mindfulness)\b/i],
-  ["reading_languages_sign_dictionaries", /\b(reading|languages?|sign\s*language|dictionar|vocabulary|grammar|writing|braille|alphabet|linguistics|bilingual|translator|hieroglyph)\b/i],
-  ["society_government_work_education",   /\b(government|politics|jobs?|careers?|education|law\b|economics|community|democracy|voting|citizenship|president|congress|senate|rights|justice|civil\s*rights)\b/i],
-  ["transportation",                      /\b(transportation|vehicles?|cars?|trucks?|trains?|airplanes?|boats?|ships?|submarines?|helicopters?|motorcycles?|locomotive|aviation|automobile|ferry|spacecraft)\b/i],
-  ["explorers_atlases",                   /\b(explorers?|exploration|atlas|maps?|cartograph|discovery|navigation|voyages?|geography|expedition|navigator|compass|circumnavigat)\b/i],
-  ["general_computers_records",           /\b(computers?|world\s*records?|guinness|internet|software|magazines?|encyclopedia|almanac|reference|database)\b/i],
-  ["poetry_jokes_plays_quotes",           /\b(poetry|poems?|jokes?|riddles?|plays?\b|drama\b|quotes?|tongue\s*twisters?|limericks?|rhymes?|haiku|sonnets?|playwright)\b/i],
+  ["world_history",                       /\b(world\s*history|medieval|renaissance|world\s*war|civilizat\w*|ancient\s*rome|ancient\s*egypt|ancient\s*greece|empires?|dynasty|crusades?|ottoman|roman\s*empire|feudal\w*|pharaohs?|gladiators?|vikings?)\b/i],
+  ["insects_animals",                     /\b(insects?|animals?|wildlife|mammals?|reptiles?|amphibians?|birds?|fish|sharks?|whales?|dolphins?|endangered\s*species|predators?|prey|migration|habitats?|zoolog\w*)\b/i],
+  ["pets_farm_animals",                   /\b(pets?|dogs?|cats?|horses?|hamsters?|rabbits?|farm\s*animals?|veterinar\w*|pet\s*care|kittens?|puppies?|guinea\s*pigs?|goldfish|parrots?)\b/i],
+  ["earth_sciences",                      /\b(geology|rocks?|minerals?|volcanos?|volcanoes?|geography|landforms?|soil|tectonics?|caves?|mountains?|erosion|crystals?|gemstones?|geolog\w*)\b/i],
+  ["engineering_robots_inventions",       /\b(engineering|robots?|inventions?|inventors?|machines?|technolog\w*|robotics|coding|programming|3d\s*print\w*|mechanis\w*|blueprints?|prototypes?|patents?)\b/i],
+  ["medicine_health_nutrition_body",      /\b(medicine|health|nutrition|human\s*body|anatomy|diseases?|exercise|fitness|hygiene|skeleton|muscles?|digest\w*|immune|vitamins?|organs?|surgery|doctor|nurse|first\s*aid)\b/i],
+  ["arts_crafts_drawing_music",           /\b(art\b|drawing|painting|crafts?|music|musical\s*instruments?|sculpture|dance|origami|photography|theater|theatre|ballet|orchestra|compos\w*|artists?|gallery|museum)\b/i],
+  ["chemistry",                           /\b(chemistry|chemicals?|elements?|periodic\s*table|atoms?|molecules?|reactions?|compounds?|solutions?|acids?|bases?|laboratory)\b/i],
+  ["physics_sound_heat_electricity_magnets", /\b(physics|electricity|magnets?|magnetism|sound|light|energy|heat|forces?|gravity|motion|waves?|friction|optics|circuits?|voltage|newton)\b/i],
+  ["math",                                /\b(mathematics|math\b|algebra|geometry|numbers?|fractions?|multiplication|probability|statistics|equations?|calcul\w*|arithmetic|decimals?)\b/i],
+  ["plants",                              /\b(plants?|trees?|flowers?|gardening|botany|seeds?|photosynthesis|forests?|rainforests?|ferns?|cactus|cacti|moss|pollen|roots?|leaves|botanical)\b/i],
+  ["life_science_genetics_microorganisms", /\b(biology|genetics|cells?|microorganisms?|bacteria|viruses?|dna|evolution|ecosystems?|habitats?|biomes?|organisms?|photosynthesis|mitosis|chromosomes?)\b/i],
+  ["cooking_sewing_costume",              /\b(cooking|recipes?|baking|sewing|fashion|costumes?|clothing|food\b|chef|cuisine|ingredients?|kitchen|desserts?|knitting)\b/i],
+  ["customs_holidays_manners_folktales",  /\b(holidays?|christmas|halloween|thanksgiving|traditions?|customs?|manners|etiquette|folklore|folktales?|celebrations?|easter|hanukkah|kwanzaa|diwali|ramadan|festivals?)\b/i],
+  ["psychology_parapsychology",           /\b(psychology|dreams?|feelings?|emotions?|mind\b|brain\b|illusions?|optical\s*illusions?|senses?|perception|self[- ]esteem|anxiety|mental\s*health|mindfulness)\b/i],
+  ["reading_languages_sign_dictionaries", /\b(reading|languages?|sign\s*language|dictionar\w*|vocabulary|grammar|writing|braille|alphabet|linguistics|bilingual|translat\w*|hieroglyph\w*)\b/i],
+  ["society_government_work_education",   /\b(government|politics|jobs?|careers?|education|law\b|economics|community|democracy|voting|citizenship|presidents?|congress|senate|rights|justice|civil\s*rights)\b/i],
+  ["transportation",                      /\b(transportation|vehicles?|cars?|trucks?|trains?|airplanes?|boats?|ships?|submarines?|helicopters?|motorcycles?|locomotives?|aviation|automobiles?|ferry|spacecraft)\b/i],
+  ["explorers_atlases",                   /\b(explorers?|exploration|atlas\w*|maps?|cartograph\w*|discovery|navigation|voyages?|geography|expeditions?|navigators?|compass|circumnavigat\w*)\b/i],
+  ["general_computers_records",           /\b(computers?|world\s*records?|guinness|internet|software|magazines?|encyclopedias?|almanacs?|reference|databases?)\b/i],
+  ["poetry_jokes_plays_quotes",           /\b(poetry|poems?|jokes?|riddles?|plays?\b|drama\b|quotes?|tongue\s*twisters?|limericks?|rhymes?|haiku|sonnets?|playwrights?)\b/i],
 ];
 
 const INFORMATIONAL_TIE_PRIORITY = [
@@ -206,7 +206,7 @@ function collectPeopleBlob(edition, work) {
 function checkPriorityPatterns(blob, edition, work) {
   const hasPeople = collectPeopleBlob(edition, work).length > 0;
   const bioDdc = hasBiographyDdc(edition, work);
-  const bioKeywords = /\b(biograph|autobiograph|who\s*was|who\s*is|life\s*of)\b/i.test(blob);
+  const bioKeywords = /\b(biograph\w*|autobiograph\w*|who\s+was|who\s+is|life\s+of)\b/i.test(blob);
   if (hasPeople || bioDdc || bioKeywords) return "biographies";
 
   if (/\b(mytholog|myths?)\b/i.test(blob) && /\b(greek|roman|norse|egyptian|viking|olymp|zeus|athena|thor|odin|anubis|hercules|poseidon|hades|apollo|loki)\b/i.test(blob)) {

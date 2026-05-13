@@ -409,6 +409,7 @@ function render() {
             <img class="category-block__icon" src="${img}" alt="" loading="lazy" />
             <h2 class="category-block__title">${display}</h2>
             <span class="category-block__count">${list.length}</span>
+            <button type="button" class="btn-print-category" aria-label="Print ${display}" title="Print this category"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></button>
           </header>
           <div class="table-wrap">
             <table class="data-table">
@@ -426,6 +427,7 @@ function render() {
     ...renderBranch("nonfiction"),
   ];
   container.innerHTML = allSections.map((s) => s.value).join("");
+  updatePrintAllVisibility();
 }
 
 // ---------------------------------------------------------------------------
@@ -582,6 +584,46 @@ function initFab() {
 }
 
 // ---------------------------------------------------------------------------
+//  Print
+// ---------------------------------------------------------------------------
+
+function initPrintAll() {
+  const btn = document.getElementById("print-all-btn");
+  if (!btn) return;
+  btn.addEventListener("click", () => window.print());
+}
+
+function updatePrintAllVisibility() {
+  const btn = document.getElementById("print-all-btn");
+  if (!btn) return;
+  btn.hidden = rows.filter((r) => r.state === "ok").length === 0;
+}
+
+function initPrintCategory() {
+  const container = document.getElementById("category-sections");
+  if (!container) return;
+
+  container.addEventListener("click", (e) => {
+    const btn = /** @type {Element} */ (e.target).closest(".btn-print-category");
+    if (!btn) return;
+
+    const section = btn.closest(".category-block");
+    if (!section) return;
+
+    document.body.classList.add("printing-single");
+    section.classList.add("printing-target");
+
+    const cleanup = () => {
+      document.body.classList.remove("printing-single");
+      section.classList.remove("printing-target");
+    };
+
+    window.addEventListener("afterprint", cleanup, { once: true });
+    window.print();
+  });
+}
+
+// ---------------------------------------------------------------------------
 //  Bootstrap
 // ---------------------------------------------------------------------------
 
@@ -609,6 +651,8 @@ async function init() {
     initIsbnInput();
     initClearButton();
     initFab();
+    initPrintAll();
+    initPrintCategory();
 
     document.getElementById("isbn-input")?.focus();
   } catch (err) {

@@ -276,6 +276,8 @@ export function mapFictionGenre(blob) {
   if (spyMystery) return spyMystery;
 
   if (/\bfriendship\b/i.test(blob)) {
+    const scored = scoreBroadGenres(blob);
+    if (scored !== "realistic_fiction") return scored;
     return /\b(humor|humour|funny|comedy|jokes)\b/i.test(blob)
       ? "humor"
       : "realistic_fiction";
@@ -364,7 +366,7 @@ const TIE_PRIORITY = [
 function scoreBroadGenres(blob) {
   const scores = {};
   for (const [key, re] of GENRE_PATTERNS) {
-    const m = blob.match(re);
+    const m = blob.match(new RegExp(re.source, "gi"));
     if (m) scores[key] = m.length;
   }
 
@@ -399,7 +401,7 @@ function scoreAnthology(blob) {
   let best = "traditional_literature";
   let bestN = 0;
   for (const [key, re] of ANTHOLOGY_PATTERNS) {
-    const m = blob.match(re);
+    const m = blob.match(new RegExp(re.source, "gi"));
     const n = m ? m.length : 0;
     if (n > bestN) { bestN = n; best = key; }
   }

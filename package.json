@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "scripts": {
+    "serve": "browser-sync start --server --port 8765 --files \"*.html, *.css, *.js, data/**/*\""
+  },
+  "devDependencies": {
+    "browser-sync": "^3.0.0"
+  }
+}
